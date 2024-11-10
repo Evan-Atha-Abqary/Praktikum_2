@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Tag meta untuk mendefinisikan karakter set dan viewport -->
+    <meta charset="UTF-8"> <!-- Menentukan karakter set yang digunakan, UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Membantu untuk membuat halaman responsif di berbagai perangkat -->
+    <title>LAPORAN TEORI</title> <!-- Judul halaman web yang muncul di tab browser -->
+
+    <style>
+        /* Gaya untuk tampilan mode 'rapi' */
+        body.rapi {
+            font-family: Arial, sans-serif; /* Jenis font yang digunakan pada mode rapi */
+            background-color: #f0f8ff; /* Warna latar belakang biru muda */
+            color: #333; /* Warna teks yang digunakan pada mode rapi */
+            margin: 0; /* Menghilangkan margin default pada body */
+            padding: 20px; /* Memberikan jarak di sekitar konten */
+            line-height: 1.6; /* Mengatur jarak antar baris teks */
+        }
+
+        /* Gaya untuk tampilan mode 'berantakan' */
+        body.berantakan {
+            font-family: 'Comic Sans MS', cursive; /* Jenis font untuk mode berantakan */
+            background-color: #ffcccb; /* Warna latar belakang merah muda */
+            color: #7a0e0e; /* Warna teks merah gelap */
+            padding: 10px; /* Padding yang lebih kecil pada mode ini */
+        }
+
+        /* Container untuk membungkus konten utama */
+        .container {
+            max-width: 800px; /* Lebar maksimum kontainer 800px */
+            margin: 0 auto; /* Mengatur margin otomatis agar konten terpusat */
+        }
+
+        /* Gaya untuk judul h1, h2, h3 */
+        h1, h2, h3 {
+            margin-top: 20px; /* Menambahkan margin atas untuk memberi jarak antar elemen */
+        }
+
+        /* Gaya untuk subjudul yang dapat diklik */
+        h3 {
+            cursor: pointer; /* Mengubah kursor menjadi pointer saat mengarahkan mouse ke judul */
+            color: #007bff; /* Warna teks biru untuk subjudul */
+            text-decoration: underline; /* Menambahkan garis bawah pada subjudul */
+        }
+
+        /* Menyembunyikan atau menampilkan konten berdasarkan id */
+        .content {
+            display: block; /* Secara default, tampilkan konten */
+        }
+
+        /* Gaya untuk tombol mode tampilan */
+        .switch-mode {
+            margin-top: 20px; /* Menambahkan margin atas agar tombol tidak terlalu dekat dengan elemen sebelumnya */
+            padding: 10px 20px; /* Padding untuk tombol */
+            border: none; /* Menghilangkan border default tombol */
+            cursor: pointer; /* Mengubah kursor menjadi pointer saat mouse berada di tombol */
+            font-size: 16px; /* Ukuran font tombol */
+        }
+    </style>
+
+    <script>
+        // Fungsi untuk mengaktifkan/toggle mode tampilan (rapi atau berantakan)
+        function toggleMode() {
+            const body = document.body; // Mengambil elemen body
+            body.classList.toggle('rapi'); // Menambahkan/menghapus kelas 'rapi'
+            body.classList.toggle('berantakan'); // Menambahkan/menghapus kelas 'berantakan'
+        }
+
+        // Fungsi untuk menampilkan/menyembunyikan konten ketika subjudul diklik
+        function toggleContent(id) {
+            const content = document.getElementById(id); // Mengambil elemen konten berdasarkan id
+            const confirmation = confirm("Apakah Anda ingin menyembunyikan konten?"); // Konfirmasi pengguna
+            if (confirmation) {
+                content.style.display = content.style.display === "none" ? "block" : "none"; // Menyembunyikan atau menampilkan konten
+            }
+        }
+    </script>
+</head>
+
+<body class="rapi"> <!-- Body dimulai dengan kelas 'rapi' yang mengatur tampilan awal -->
+    <div class="container"> <!-- Container utama yang membungkus semua konten -->
+
+        <!-- Judul dan Subjudul -->
+        <h1><B>LAPORAN TEORI</B></h1> <!-- Judul utama dari halaman web -->
+        <h2>Evan Atha Abqary | 202331163</h2> <!-- Nama dan NIM mahasiswa -->
+
+        <!-- Konten Biodata -->
+        <h3 onclick="toggleContent('biodata')">Bagian 1: Biodata</h3> <!-- Subjudul yang dapat diklik untuk menampilkan/menyembunyikan konten -->
+        <div id="biodata" class="content">
+            <p>Nama saya Evan Atha Abqary, mahasiswa Prodi Fakultas Telematika Energi Serta jurusan Teknik Informatika di Institut Teknologi PLN dengan NIM 202331163.</p> <!-- Konten biodata -->
+        </div>
+
+        <!-- Konten Tujuan -->
+        <h3 onclick="toggleContent('tujuan')">Bagian 2: Tujuan</h3>
+        <div id="tujuan" class="content">
+            <p>Tujuan saya adalah menjadi UI/UX Designer yang dapat menciptakan pengalaman pengguna yang optimal dan efektif dalam produk digital.</p>
+        </div>
+
+        <!-- Konten Hobi -->
+        <h3 onclick="toggleContent('hobi')">Bagian 3: Hobi</h3>
+        <div id="hobi" class="content">
+            <p>Saya menikmati belajar desain grafis, fotografi, bermain musik, dan juga Bermain Bola yang membantu saya dalam mengembangkan kreativitas dan pemahaman terhadap seni visual.</p>
+        </div>
+
+        <!-- Konten Cita-cita -->
+        <h3 onclick="toggleContent('cita_cita')">Bagian 4: Cita-cita</h3>
+        <div id="cita_cita" class="content">
+            <p>Saya bercita-cita menjadi seorang desainer produk digital yang dapat menciptakan solusi efektif melalui tampilan yang intuitif dan ramah pengguna.</p>
+        </div>
+
+        <!-- Konten Pengalaman -->
+        <h3 onclick="toggleContent('pengalaman')">Bagian 5: Pengalaman</h3>
+        <div id="pengalaman" class="content">
+            <p>Pengalaman saya Membuat Project Website Biodata,Kalkulator,praktikum rigging di lab multimedia, serta beberapa proyek desain dalam bidang UI/UX.</p>
+        </div>
+
+        <!-- Tombol Ganti Mode Tampilan -->
+        <button class="switch-mode" onclick="toggleMode()">Ganti Mode Tampilan</button> <!-- Tombol untuk mengubah tampilan antara 'rapi' dan 'berantakan' -->
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
